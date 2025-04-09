@@ -16,54 +16,54 @@ A Bash script to extract, sort, and split large JSON-formatted log files by `<YO
 ### 1. Clone or download the script
 
 ```bash
-git clone https://github.com/yourusername/log-file-processor.git
-cd log-file-processor
+git clone https://github.com/lukasgies/tooling-aggregateLogs.git
+cd tooling-aggregateLogs
 ```
 
 ### 2. Make the script executable
-bash
-Kopieren
-Bearbeiten
+```bash
 chmod +x process_logs.sh
+```
 
 ### 3. Run the script
-bash
-Kopieren
-Bearbeiten
+```bash
 ./process_logs.sh
+```
 The script will recursively search for all *.log files in the current directory and process them.
 
 ### ⚙️ Configuration
 At the top of the script, you can change the following constants to match your log format:
 
-bash
-Kopieren
-Bearbeiten
+```bash
 EVENT_TIME_KEY="<YOURTIMESTAMP>"             # JSON key to extract timestamps from
 OUTPUT_PREFIX="<YOURPREFIX>"   # Prefix for the output files
+```
 
-### ✅ Requirements
-Bash
+### Validation
+```bash
+./checkAggregatedLogs.sh
+```
+Validates that each line's timestamp is in non-decreasing order
 
-GNU Parallel
+## ✅ Requirements
 
-Core Unix utilities (awk, sort, find, etc.)
+- Bash
+- GNU Parallel
+- Core Unix utilities (awk, sort, find, etc.)
 
-### 📂 Output
+## 📂 Output
 The script generates output files in the format:
 
-bash
-Kopieren
-Bearbeiten
+```bash
 <YOURPREFIX>1.log
 <YOURPREFIX>2.log
-...
+```
 Each file contains a maximum of 10,000 lines, sorted by <YOURTIMESTAMP>.
 
-### 🧹 Cleanup
+## 🧹 Cleanup
 All temporary files are automatically removed at the end of the script. No manual cleanup is needed.
 
-### 🧪 Example
+## 🧪 Example
 Given input lines like:
 ```bash
 {"<YOURTIMESTAMP>":"2025-04-09T12:00:00Z", "message":"First"}

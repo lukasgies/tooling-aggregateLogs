@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # === Configurable Constants ===
-EVENT_TIME_KEY="YOURTIMESTAMP"
+EVENT_TIME_KEY="YOURTIMESTAMPFIELD"
 OUTPUT_PREFIX="YOURPREFIX"
 
 # ^^^^^^^^^^SET THIS FIELDS ^^^^^^^^^^^^
